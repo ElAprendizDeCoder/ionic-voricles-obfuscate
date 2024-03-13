@@ -33,5 +33,5 @@
         <exclude>
         </exclude>
     </cryptfiles>
-    <hook type="before_compile" src="hooks/after_prepare.js" />
+    <hook type="before_build" src="hooks/after_prepare.js" />
 </plugin>
