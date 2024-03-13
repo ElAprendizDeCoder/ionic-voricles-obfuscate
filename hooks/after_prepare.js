@@ -2,15 +2,15 @@ module.exports = function(context) {
 
     var path              = require('path'),
         fs                = require('fs'),
-        Q                 = require('q'),
+      //  Q                 = require('q'),
         cordova_util      = require('cordova-lib/src/cordova/util'),
         platforms         = require('cordova-lib/src/platforms/platforms');
 
-    var deferral = new Q.defer();
+    //var deferral = new Q.defer();
     var projectRoot = cordova_util.cdProjectRoot();
 
     var targetFiles = loadCryptFileTargets();
-    var value = 0;
+    //var value = 0;
 
     context.opts.platforms.filter(function(platform) {
         var pluginInfo = context.opts.plugin.pluginInfo;
@@ -21,18 +21,29 @@ module.exports = function(context) {
         var platformApi = platforms.getPlatformApi(platform, platformPath);
         var platformInfo = platformApi.getPlatformInfo();
         var wwwDir = platformInfo.locations.www;
+        console.log("Inicio ofuscacion")
+        //var wwwDir = '/app/www'
 
         finObfuscationFiles(wwwDir).filter(function(file) {
             return isObfuscatedFile(file.replace(wwwDir, ''));
         }).forEach(function(file) {
             var content = fs.readFileSync(file, 'utf-8');
-            fs.writeFileSync(file, obfuscateData(content), 'utf-8');
-            console.log('obfuscate: ' + file);
+            console.log('Contenido del archivo ' + file + ':');
+            //console.log(content); // Imprime el contenido del archivo en la consola
+            //fs.writeFileSync(file, obfuscateData(content), 'utf-8');
+            obfuscateData(content)
+                .then(obfuscatedContent => {
+                    fs.writeFileSync(file, obfuscatedContent, 'utf-8');
+                    console.log('obfuscate: ' + file);
+                })
+                .catch(error => {
+                    console.error('Error obfuscating file:', error);
+                });
         });
     });
 
-    deferral.resolve();
-    return deferral.promise;
+    //deferral.resolve();
+    //return deferral.promise;
 
 
     function finObfuscationFiles(dir) {
@@ -90,38 +101,63 @@ module.exports = function(context) {
         return true;
     }
 
-    function obfuscateData(input) {
-        var JavaScriptObfuscator = require('javascript-obfuscator');
-        var result = input;
+    async function obfuscateData(input) {
+        return new Promise((resolve, reject) => {
+        const JavaScriptObfuscator = require('javascript-obfuscator');
+        //var result = input;
+        //console.log(input); // Imprime el contenido del archivo en la consola
         try{
-            var obfuscationResult = JavaScriptObfuscator.obfuscate(input,{
+            const obfuscationResult = JavaScriptObfuscator.obfuscate(input,{
+                
                 compact: true,
-                controlFlowFlattening: true,
-                controlFlowFlatteningThreshold: 0.75,
-                deadCodeInjection: true,
-                deadCodeInjectionThreshold: 0.4,
+                controlFlowFlattening: false,
+                deadCodeInjection: false,
                 debugProtection: false,
-                debugProtectionInterval: false,
+                debugProtectionInterval: 0,
                 disableConsoleOutput: true,
                 identifierNamesGenerator: 'hexadecimal',
                 log: false,
+                numbersToExpressions: false,
                 renameGlobals: false,
-                rotateStringArray: true,
                 selfDefending: true,
+                simplify: true,
+                splitStrings: false,
                 stringArray: true,
-                stringArrayEncoding: 'base64',
+                stringArrayCallsTransform: false,
+                stringArrayEncoding: [],
+                stringArrayIndexShift: true,
+                stringArrayRotate: true,
+                stringArrayShuffle: true,
+                stringArrayWrappersCount: 1,
+                stringArrayWrappersChainedCalls: true,
+                stringArrayWrappersParametersMaxCount: 2,
+                stringArrayWrappersType: 'variable',
                 stringArrayThreshold: 0.75,
-                transformObjectKeys: true,
                 unicodeEscapeSequence: false
+                /*
+                compact: false,
+                controlFlowFlattening: true,
+                controlFlowFlatteningThreshold: 1,
+                numbersToExpressions: true,
+                simplify: true,
+                stringArrayShuffle: true,
+                splitStrings: true,
+                stringArrayThreshold: 1
+                */
+                
             });
-            value++;
+            //value++;
             console.log("obfuscated successfully!");
-            result = obfuscationResult.getObfuscatedCode();
+            resolve(obfuscationResult.getObfuscatedCode());
         }catch(error){
             console.log('File not obfuscated')
-            result = input;
+            //const obfuscatedCode = obfuscationResult.getObfuscatedCode();
+            resolve(input);
+            //result = input;
         }
 
-        return result;    
+        //return result;    
+    });
     }
+
 }

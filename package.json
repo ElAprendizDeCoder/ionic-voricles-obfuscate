@@ -46,7 +46,7 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "javascript-obfuscator": "0.16.0"
+    "javascript-obfuscator": "^4.1.0"
   },
   "deprecated": false,
   "description": "Protect your ionic app source code against reverse engineering.",
