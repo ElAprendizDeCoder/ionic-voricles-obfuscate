@@ -1,0 +1,65 @@
+{
+  "_from": "ionic-voricles-obfuscate",
+  "_id": "ionic-voricles-obfuscate@1.0.22",
+  "_inBundle": false,
+  "_integrity": "sha512-yZy8XksefwW54ZfcVNY4iiXSd1bDXITVG82g3mCSe/IZaowq0vpmCrKVjXgsW6HSGyMen5Cvorrd5mnBnCTa1Q==",
+  "_location": "/ionic-voricles-obfuscate",
+  "_phantomChildren": {
+    "@babel/runtime": "7.0.0-beta.44",
+    "amdefine": "1.0.1",
+    "array-union": "1.0.2",
+    "arrify": "1.0.1",
+    "charenc": "0.0.2",
+    "color-convert": "1.9.3",
+    "crypt": "0.0.2",
+    "escape-string-regexp": "1.0.5",
+    "espree": "4.0.0-alpha.0",
+    "esutils": "2.0.3",
+    "has-flag": "3.0.0",
+    "is-buffer": "1.1.6",
+    "js-string-escape": "1.0.1",
+    "minimatch": "3.0.8",
+    "opencollective": "1.0.3",
+    "optionator": "0.8.3",
+    "pjson": "1.0.9"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "ionic-voricles-obfuscate",
+    "name": "ionic-voricles-obfuscate",
+    "escapedName": "ionic-voricles-obfuscate",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/ionic-voricles-obfuscate/-/ionic-voricles-obfuscate-1.0.22.tgz",
+  "_shasum": "1a06d6c84be36d5c331d944c716cee05b61a0947",
+  "_spec": "ionic-voricles-obfuscate",
+  "_where": "/app",
+  "author": {
+    "name": "Voricles"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "javascript-obfuscator": "0.16.0"
+  },
+  "deprecated": false,
+  "description": "Protect your ionic app source code against reverse engineering.",
+  "keywords": [
+    "ecosystem: ionic",
+    "cordova-android",
+    "Obfuscate",
+    "cordova-ios"
+  ],
+  "license": "Apache version 2.0",
+  "name": "ionic-voricles-obfuscate",
+  "repository": {
+    "type": "git"
+  },
+  "version": "1.0.22"
+}
