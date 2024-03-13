@@ -1,24 +1,18 @@
 package com;
 
-import android.net.Uri;
-import org.apache.cordova.CordovaPlugin;
+import java.net.URI;
 
-public class Obfuscate extends CordovaPlugin {
+public class Obfuscate {
 
-    @Override
-    public Uri remapUri(Uri uri) {
-        if (uri.toString().indexOf("/+++/") > -1) {
-            // Aquí deberías implementar tu propia lógica para manejar la URI
-            // por ejemplo, puedes cambiar la URI según tus necesidades
-            return this.toPluginUri(uri);
+    public URI remapUri(URI uri) {
+        if (uri.toString().contains("/+++/")) {
+            return toPluginUri(uri);
         } else {
             return uri;
         }
     }
-    
-    // Este método no existe en CordovaPlugin, deberás implementarlo según tus necesidades
-    private Uri toPluginUri(Uri uri) {
-        // Implementa aquí la lógica para convertir la URI según tus necesidades
+
+    private URI toPluginUri(URI uri) {
         return uri;
     }
 }
