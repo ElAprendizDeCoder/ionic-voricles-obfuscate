@@ -1,10 +1,10 @@
 module.exports = function(context) {
 
-    var path              = context.require('path'),
-        fs                = context.require('fs'),
-        Q                 = context.require('q'),
-        cordova_util      = context.require('cordova-lib/src/cordova/util'),
-        platforms         = context.require('cordova-lib/src/platforms/platforms');
+    var path              = require('path'),
+        fs                = require('fs'),
+        Q                 = require('q'),
+        cordova_util      = require('cordova-lib/src/cordova/util'),
+        platforms         = require('cordova-lib/src/platforms/platforms');
 
     var deferral = new Q.defer();
     var projectRoot = cordova_util.cdProjectRoot();
@@ -54,7 +54,7 @@ module.exports = function(context) {
     }
 
     function loadCryptFileTargets() {
-        var xmlHelpers = context.require('cordova-common').xmlHelpers;
+        var xmlHelpers = require('cordova-common').xmlHelpers;
 
         var pluginXml = path.join(context.opts.plugin.dir, 'plugin.xml');
 
