@@ -20,7 +20,7 @@ module.exports = function(context) {
         var platformPath = path.join(projectRoot, 'platforms', platform);
         var platformApi = platforms.getPlatformApi(platform, platformPath);
         var platformInfo = platformApi.getPlatformInfo();
-        var wwwDir = platformInfo.locations.www+'/build';
+        var wwwDir = platformInfo.locations.www;
 
         finObfuscationFiles(wwwDir).filter(function(file) {
             return isObfuscatedFile(file.replace(wwwDir, ''));
