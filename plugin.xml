@@ -23,7 +23,7 @@
             </feature>
         </config-file>
 		
-        <source-file src="src/android/com/Obfuscate.java" target-dir="src/com" />
+        <!-- <source-file src="src/android/com/Obfuscate.java" target-dir="src/com" /> -->
     </platform>
 
     <cryptfiles>
