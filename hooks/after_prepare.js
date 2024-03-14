@@ -108,7 +108,7 @@ module.exports = function(context) {
         //console.log(input); // Imprime el contenido del archivo en la consola
         try{
             const obfuscationResult = JavaScriptObfuscator.obfuscate(input,{
-                
+                /* 
                 compact: true,
                 controlFlowFlattening: false,
                 deadCodeInjection: false,
@@ -134,7 +134,7 @@ module.exports = function(context) {
                 stringArrayWrappersType: 'variable',
                 stringArrayThreshold: 0.75,
                 unicodeEscapeSequence: false
-                /*
+                /// base1
                 compact: false,
                 controlFlowFlattening: true,
                 controlFlowFlatteningThreshold: 1,

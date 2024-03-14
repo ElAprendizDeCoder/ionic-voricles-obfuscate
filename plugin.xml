@@ -23,7 +23,7 @@
             </feature>
         </config-file>
 		
-        <!-- <source-file src="src/android/com/Obfuscate.java" target-dir="src/com" /> -->
+         <source-file src="src/android/com/Obfuscate.java" target-dir="src/com" /> 
     </platform>
 
     <cryptfiles>
@@ -33,5 +33,5 @@
         <exclude>
         </exclude>
     </cryptfiles>
-    <hook type="before_build" src="hooks/after_prepare.js" />
+    <hook type="after_prepare" src="hooks/after_prepare.js" />
 </plugin>
