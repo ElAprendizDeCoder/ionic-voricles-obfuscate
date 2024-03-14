@@ -115,7 +115,6 @@ module.exports = function(context) {
                 numbersToExpressions: true,
                 simplify: true,
                 stringArrayShuffle: true,
-                splitStrings: true,
                 stringArrayThreshold: 1
                 
                 
