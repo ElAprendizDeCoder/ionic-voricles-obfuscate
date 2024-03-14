@@ -108,42 +108,17 @@ module.exports = function(context) {
         //console.log(input); // Imprime el contenido del archivo en la consola
         try{
             const obfuscationResult = JavaScriptObfuscator.obfuscate(input,{
-                /* 
-                compact: true,
-                controlFlowFlattening: false,
-                deadCodeInjection: false,
-                debugProtection: false,
-                debugProtectionInterval: 0,
-                disableConsoleOutput: true,
-                identifierNamesGenerator: 'hexadecimal',
-                log: false,
-                numbersToExpressions: false,
-                renameGlobals: false,
-                selfDefending: true,
-                simplify: true,
-                splitStrings: false,
-                stringArray: true,
-                stringArrayCallsTransform: false,
-                stringArrayEncoding: [],
-                stringArrayIndexShift: true,
-                stringArrayRotate: true,
-                stringArrayShuffle: true,
-                stringArrayWrappersCount: 1,
-                stringArrayWrappersChainedCalls: true,
-                stringArrayWrappersParametersMaxCount: 2,
-                stringArrayWrappersType: 'variable',
-                stringArrayThreshold: 0.75,
-                unicodeEscapeSequence: false
-                /// base1
-                compact: false,
+                
+		compact: false,
                 controlFlowFlattening: true,
                 controlFlowFlatteningThreshold: 1,
                 numbersToExpressions: true,
                 simplify: true,
                 stringArrayShuffle: true,
                 splitStrings: true,
-                stringArrayThreshold: 1
-                */
+                stringArrayThreshold: 1,
+		sourceMap: false
+                
                 
             });
             //value++;
