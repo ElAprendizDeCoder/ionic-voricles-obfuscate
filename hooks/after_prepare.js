@@ -109,6 +109,7 @@ module.exports = function(context) {
         try{
             const obfuscationResult = JavaScriptObfuscator.obfuscate(input,{
                 
+		/*
 		compact: false,
                 controlFlowFlattening: true,
                 controlFlowFlatteningThreshold: 1,
@@ -116,6 +117,7 @@ module.exports = function(context) {
                 simplify: true,
                 stringArrayShuffle: true,
                 stringArrayThreshold: 1
+		*/
                 
                 
             });
