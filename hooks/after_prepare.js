@@ -116,8 +116,7 @@ module.exports = function(context) {
                 simplify: true,
                 stringArrayShuffle: true,
                 splitStrings: true,
-                stringArrayThreshold: 1,
-		sourceMap: false
+                stringArrayThreshold: 1
                 
                 
             });
